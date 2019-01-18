@@ -99,7 +99,7 @@ class Client():
         else:
             request = QBRequest(request)
         res = self.__make_req(url, headers, request)
-        parsed = et.XML(res.text)
+        parsed = et.XML(res.text.encode('utf-8'))
 
         # check errcode
         errcode = parsed.find('errcode')
